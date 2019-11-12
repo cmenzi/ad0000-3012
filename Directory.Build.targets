@@ -1,0 +1,15 @@
+<Project>    
+  <PropertyGroup>
+    <Product>$(AssemblyName) ($(TargetFramework))</Product>
+    <Copyright>Copyright (c) Cédric Menzi</Copyright>
+    <Authors>Cédric Menzi</Authors>
+    <NoWarn>$(NoWarn);1701;1702;CS1591</NoWarn>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <IsTestProject>$(MSBuildProjectName.Contains('Tests'))</IsTestProject>
+    <CodeAnalysisRuleSet Condition="'$(IsTestProject)' == 'false' ">$(MSBuildThisFileDirectory)Ruleset.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(IsTestProject)' == 'true' ">$(MSBuildThisFileDirectory)Ruleset.Tests.ruleset</CodeAnalysisRuleSet>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+  </PropertyGroup>
+</Project>
